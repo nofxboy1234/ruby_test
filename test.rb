@@ -262,20 +262,21 @@ end
 
 def bubble_sort(arr)
   pass = 1
-  arr.each_with_index do |num, i|
-    if i < arr.length - 1
-      a = num
-      b = arr[i + 1]
-      if a > b
-        swap(arr, i, i + 1)
-        p ''
+  max_pass = arr.length - 1
+  while pass <= max_pass
+    arr.each_with_index do |num, i|
+      if i < arr.length - 1
+        a = num
+        b = arr[i + 1]
+        swap(arr, i, i + 1) if a > b
       end
     end
-    arr
+    pass += 1
   end
+  arr
 end
 
-# simple_swap(5, 6)
-# p bubble_sort([3, 2, 9, 6, 5])
 p bubble_sort([3, 2, 1])
-# [2, 3, 6, 5, 9]
+p bubble_sort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
+p bubble_sort([4, 3, 78, 2, 0, 2])
+# => [0,2,2,3,4,78]
