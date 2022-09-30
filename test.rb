@@ -261,16 +261,18 @@ def swap(arr, index_a, index_b)
 end
 
 def bubble_sort(arr)
-  swapped = false
+  pass = 1
   arr.each_with_index do |num, i|
-    # p "#{i}: #{num}"
     if i < arr.length - 1
       a = num
       b = arr[i + 1]
-      swap(arr, i, i + 1) if a > b
+      if a > b
+        swap(arr, i, i + 1)
+        p ''
+      end
     end
+    arr
   end
-  arr
 end
 
 # simple_swap(5, 6)
