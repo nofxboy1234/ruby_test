@@ -266,6 +266,7 @@ def bubble_sort(arr)
   swapped = true
   while pass <= max_pass
     break if !swapped
+    p "pass: #{pass}"
     arr.each_with_index do |num, i|
       if i < arr.length - (1 * pass)
         a = num
@@ -285,5 +286,9 @@ end
 
 # p bubble_sort([3, 2, 1])
 # p bubble_sort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
-p bubble_sort([4, 3, 78, 2, 0, 2])
+# p bubble_sort([4, 3, 78, 2, 0, 2])
+p bubble_sort(
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+  )
+
 # => [0,2,2,3,4,78]
