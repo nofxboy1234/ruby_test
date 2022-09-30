@@ -248,24 +248,22 @@
 # number of elements n - 1
 
 def bubble_sort(arr)
-  arr.each_with_index do |num, i|
-    if i < arr.length - 1
-      if num > arr[i + 1]
-        tmp = arr[i + 1]
-        arr[i + 1] = num
-        arr[i] = tmp
+  pass = 1
+  while pass <= arr.length - 1
+    arr.each_with_index do |num, i|
+      if i < pass
+        if num > arr[i + 1]
+          tmp = arr[i + 1]
+          arr[i + 1] = num
+          arr[i] = tmp
+        end
       end
     end
+    pass += 1
   end
   arr
 end
 
 # p bubble_sort([4, 2, 78, 2, 0, 2])
 p bubble_sort([3, 2, 9, 6, 5])
-
-# [4, 2, 78, 2, 0, 2]
-# [2, 4, 78, 2, 0, 2]
-# [2, 4, 78, 2, 0, 2]
-# [2, 4, 2, 78, 0, 2]
-# [2, 4, 2, 0, 78, 2]
-# [2, 4, 2, 0, 2, 78]
+# [2, 3, 6, 5, 9]
