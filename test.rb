@@ -263,12 +263,19 @@ end
 def bubble_sort(arr)
   pass = 1
   max_pass = arr.length - 1
+  swapped = true
   while pass <= max_pass
+    break if !swapped
     arr.each_with_index do |num, i|
       if i < arr.length - (1 * pass)
         a = num
         b = arr[i + 1]
-        swap(arr, i, i + 1) if a > b
+        if a > b
+          swap(arr, i, i + 1)
+          swapped = true
+        else
+          swapped = false
+        end
       end
     end
     pass += 1
