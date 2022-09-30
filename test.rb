@@ -247,23 +247,33 @@
 ##########################################3
 # number of elements n - 1
 
+def simple_swap(a, b)
+  tmp = b
+  b = a
+  a = tmp
+  puts "#{a} #{b}"
+end
+
+def swap(arr, index_a, index_b)
+  tmp = arr[index_b]
+  arr[index_b] = arr[index_a]
+  arr[index_a] = tmp
+end
+
 def bubble_sort(arr)
-  pass = 1
-  while pass <= arr.length - 1
-    arr.each_with_index do |num, i|
-      if i < pass
-        if num > arr[i + 1]
-          tmp = arr[i + 1]
-          arr[i + 1] = num
-          arr[i] = tmp
-        end
-      end
+  swapped = false
+  arr.each_with_index do |num, i|
+    # p "#{i}: #{num}"
+    if i < arr.length - 1
+      a = num
+      b = arr[i + 1]
+      swap(arr, i, i + 1) if a > b
     end
-    pass += 1
   end
   arr
 end
 
-# p bubble_sort([4, 2, 78, 2, 0, 2])
-p bubble_sort([3, 2, 9, 6, 5])
+# simple_swap(5, 6)
+# p bubble_sort([3, 2, 9, 6, 5])
+p bubble_sort([3, 2, 1])
 # [2, 3, 6, 5, 9]
